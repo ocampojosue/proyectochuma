@@ -9,3 +9,9 @@
 <link rel="stylesheet" href="{{asset('template/dist/css/adminlte.min.css')}}">
 <!-- overlayScrollbars -->
 <link rel="stylesheet" href="{{asset('template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+@yield('styles')
+<style>
+   .swal2-popup.swal2-toast .swal2-title{
+      margin: 0.6em 0em 0em 0em!important;
+   }
+</style>
