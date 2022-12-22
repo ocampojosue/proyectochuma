@@ -57,7 +57,7 @@
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
          <!-- Brand Logo -->
-         <a href="index3.html" class="brand-link">
+         <a href="{{route('home')}}" class="brand-link">
             <img src="{{asset('template/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
                class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">UE CLUB DE LEONES</span>
@@ -72,7 +72,7 @@
                      alt="User Image">
                </div>
                <div class="info">
-                  <a href="#" class="d-block">{{auth()->user()->name}}</a>
+                  <a href="{{route('home')}}" class="d-block">{{auth()->user()->name}}</a>
                </div>
             </div>
             <!-- Sidebar Menu -->
@@ -100,7 +100,7 @@
       </div>
       <!-- /.content-wrapper -->
       <footer class="main-footer">
-         <strong>Copyright &copf; 2022 &nbsp; <a href="https://www.facebook.com" target="_blank">V.M.C.F</a>.</strong>
+         <strong>Copyright &copf; 2022 &nbsp; <a href="https://www.facebook.com/victormanuel.chumacerofigueroa" target="_blank">V.M.C.F</a>.</strong>
          All rights reserved.
          <div class="float-right d-none d-sm-inline-block">
             <b>Hecho con <i class="fa fa-heart text-danger"></i></b>

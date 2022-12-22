@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Livewire\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -18,11 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('home');
     });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/homelivewire', HomeController::class)->name('homelivewire');
     Route::resource('/users', UserController::class)->names('admin.users');
+    Route::resource('/themes', ThemeController::class)->names('admin.themes');
 });
