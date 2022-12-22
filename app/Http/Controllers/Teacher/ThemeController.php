@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Models\Theme;
@@ -16,7 +16,7 @@ class ThemeController extends Controller
     public function index()
     {
         $themes = Theme::all();
-        return view('admin.themes.index', compact('themes'));
+        return view('profesor.themes.index', compact('themes'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ThemeController extends Controller
      */
     public function create()
     {
-        return view('admin.themes.create');
+        return view('profesor.themes.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class ThemeController extends Controller
         $theme->save();
         $data = array('success', 'TEMA CREADO CORRECTAMENTE');
         Session::put('alerts', $data);
-        return redirect()->route('admin.themes.index');
+        return redirect()->route('profesor.themes.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class ThemeController extends Controller
      */
     public function edit(Theme $theme)
     {
-        return view('admin.themes.edit', compact('theme'));
+        return view('profesor.themes.edit', compact('theme'));
     }
 
     /**
@@ -103,7 +103,7 @@ class ThemeController extends Controller
         $theme->save();
         $data = array('success', 'TEMA ACTUALIZADO CORRECTAMENTE');
         Session::put('alerts', $data);
-        return redirect()->route('admin.themes.index');
+        return redirect()->route('profesor.themes.index');
     }
 
     /**
@@ -117,6 +117,6 @@ class ThemeController extends Controller
         $theme->delete();
         $data = array('error', 'TEMA ELIMINADO');
         Session::put('alerts', $data);
-        return redirect()->route('admin.themes.index');
+        return redirect()->route('profesor.themes.index');
     }
 }

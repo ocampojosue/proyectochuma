@@ -9,38 +9,40 @@
          <h3>TEMAS</h3>
       </div>
       <div class="col-6">
-         <a href="{{route('admin.themes.create')}}" class="btn btn-primary float-right">NUEVO TEMA</a>
+         <a href="{{route('profesor.evaluations.create')}}" class="btn btn-primary float-right">NUEVA EVALUACIÓN</a>
       </div>
    </div>
    <br>
    <div class="card">
       <div class="card-body py-2 px-1">
-         <table id="themes" class="table table striped shadow-lg mt-4">
+         <table id="evaluations" class="table table striped shadow-lg mt-4">
             <thead class="bg-primary text-white">
                <tr>
                   <th>ID</th>
-                  <th>NOMBRE</th>
+                  <th>DESCRIPCIÓN</th>
+                  <th>FECHA</th>
                   <th>ESTADO</th>
+                  <th>TEMA</th>
                   <th>PROFESOR</th>
-                  <th>CREACIÓN</th>
                   <th>ACCIONES</th>
                </tr>
             </thead>
             <tbody>
-               @foreach ($themes as $theme)
+               @foreach ($evaluations as $evaluation)
                <tr>
-                  <td>{{ $theme->id}}</td>
-                  <td>{{ $theme->name}}</td>
+                  <td>{{ $evaluation->id}}</td>
+                  <td>{!! $evaluation->description!!}</td>
+                  <td>{{ $evaluation->date_evaluation}}</td>
                   <td>
-                     <span class="badge badge-{{$theme->status == 'ACTIVE' ? 'success' : 'danger'}} px-2 py-1">
-                        {{$theme->status == 'ACTIVE' ? 'ACTIVO' : 'INACTIVO'}}
+                     <span class="badge badge-{{$evaluation->status == 'ACTIVE' ? 'success' : 'danger'}} px-2 py-1">
+                        {{$evaluation->status == 'ACTIVE' ? 'ACTIVO' : 'INACTIVO'}}
                      </span>
                   </td>
-                  <td>{{ $theme->teacher->name}}</td>
-                  <td>{{ \Carbon\Carbon::parse($theme->created_at)->format('d-m-Y, H:i') }}</td>
+                  <td>{{ $evaluation->theme->name}}</td>
+                  <td>{{ $evaluation->teacher->name}}</td>
                   <td width="150px">
-                     <form action="{{route('admin.themes.destroy',$theme)}}" method="POST">
-                        <a href="{{route('admin.themes.edit',$theme)}}" class="btn btn-primary btn-sm">Editar</a>
+                     <form action="{{route('profesor.evaluations.destroy',$evaluation)}}" method="POST">
+                        <a href="{{route('profesor.evaluations.edit',$evaluation)}}" class="btn btn-primary btn-sm">Editar</a>
                         @method('delete')
                         @csrf
                         <input type="submit" value="Eliminar" class="btn btn-danger btn-sm ">
@@ -66,7 +68,7 @@
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <script>
    $(document).ready(function () {
-            $('#themes').DataTable({
+            $('#evaluations').DataTable({
                 "language" : {
                     "search" : "Buscar",
                     "lengthMenu" : "Mostrar _MENU_ registros por pagina",

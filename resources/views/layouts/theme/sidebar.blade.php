@@ -9,10 +9,18 @@
          </a>
       </li>
       <li class="nav-item">
-         <a href="{{route('admin.themes.index')}}" class="nav-link @if(Request::is('admin/themes', 'admin/themes/*')) active @endif">
+         <a href="{{route('profesor.themes.index')}}" class="nav-link @if(Request::is('profesor/themes', 'profesor/themes/*')) active @endif">
             <i class="nav-icon fas fa-box"></i>
             <p>
                TEMAS
+            </p>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a href="{{route('profesor.evaluations.index')}}" class="nav-link @if(Request::is('profesor/evaluations', 'profesor/evaluations/*')) active @endif">
+            <i class="nav-icon fas fa-bookmark"></i>
+            <p>
+               EVALUACIONES
             </p>
          </a>
       </li>

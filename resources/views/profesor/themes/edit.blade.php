@@ -8,7 +8,7 @@
    </div>
    <br>
    <div class="card">
-      <form action="{{route('admin.themes.update', $theme)}}" method="POST">
+      <form action="{{route('profesor.themes.update', $theme)}}" method="POST">
          @csrf
          @method('PUT')
          <div class="card-body row">

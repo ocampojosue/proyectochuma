@@ -8,7 +8,7 @@
    </div>
    <br>
    <div class="card">
-      <form action="{{route('admin.themes.store')}}" method="post">
+      <form action="{{route('profesor.themes.store')}}" method="post">
          @csrf
          <div class="card-body row">
             <div class="form-group col-12">
