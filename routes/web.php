@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Teacher\EvaluationController;
+use App\Http\Controllers\Teacher\OptionController;
+use App\Http\Controllers\Teacher\QuestionController;
 use App\Http\Controllers\Teacher\ThemeController;
 use App\Http\Livewire\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -35,4 +37,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Route::middleware(['auth'])->prefix('profesor')->group(function () {
     Route::resource('/themes', ThemeController::class)->names('profesor.themes');
     Route::resource('/evaluations', EvaluationController::class)->names('profesor.evaluations');
+    Route::resource('/questions', QuestionController::class)->names('profesor.questions');
+    Route::resource('/options', OptionController::class)->names('profesor.options');
 });
